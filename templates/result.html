@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>METAR Result - {{ airport_code }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Report for {{ airport_code }}</h1>
+        
+        <div class="summary-card">
+            <h2>Current Conditions</h2>
+            <p class="summary">{{ decoded.summary }}</p>
+        </div>
+        
+        <div class="details-card">
+            <h3>Detailed Information</h3>
+            <div class="details-grid">
+                {% if decoded.details.time %}
+                <div class="detail-item">
+                    <strong>Observation Time:</strong> {{ decoded.details.time }}
+                </div>
+                {% endif %}
+                
+                {% if decoded.details.wind %}
+                <div class="detail-item">
+                    <strong>Wind:</strong> {{ decoded.details.wind }}
+                </div>
+                {% endif %}
+                
+                {% if decoded.details.visibility %}
+                <div class="detail-item">
+                    <strong>Visibility:</strong> {{ decoded.details.visibility }}
+                </div>
+                {% endif %}
+                
+                {% if decoded.details.weather %}
+                <div class="detail-item">
+                    <strong>Weather:</strong> {{ decoded.details.weather }}
+                </div>
+                {% endif %}
+                
+                {% if decoded.details.clouds %}
+                <div class="detail-item">
+                    <strong>Sky Conditions:</strong> {{ decoded.details.clouds }}
+                </div>
+                {% endif %}
+                
+                {% if decoded.details.temperature %}
+                <div class="detail-item">
+                    <strong>Temperature:</strong> {{ decoded.details.temperature }}
+                </div>
+                {% endif %}
+                
+                {% if decoded.details.dewpoint %}
+                <div class="detail-item">
+                    <strong>Dewpoint:</strong> {{ decoded.details.dewpoint }}
+                </div>
+                {% endif %}
+                
+                {% if decoded.details.pressure %}
+                <div class="detail-item">
+                    <strong>Barometric Pressure:</strong> {{ decoded.details.pressure }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="raw-metar">
+            <h3>Raw METAR</h3>
+            <code>{{ decoded.raw_metar }}</code>
+        </div>
+        
+        <div class="actions">
+            <a href="/" class="btn">Check Another Airport</a>
+        </div>
+    </div>
+</body>
+</html>
