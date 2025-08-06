@@ -29,9 +29,11 @@ METAR (Meteorological Aerodrome Report) is a standardized weather reporting form
 
 ### Home Page
 Clean, simple interface for entering airport codes:
+![Home Page](screenshot1.webp)
 
 ### Results Page
 Comprehensive weather breakdown with both summary and detailed information:
+![Results Page](screenshot2.webp)
 
 ## Installation
 
@@ -44,7 +46,7 @@ Comprehensive weather breakdown with both summary and detailed information:
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/yourusername/KodeKloud-METAR-Reader.git
+git clone https://github.com/JeremyMorgan/KodeKloud-METAR-Reader.git
 cd KodeKloud-METAR-Reader
 ```
 
@@ -183,7 +185,7 @@ CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under Creative Commons - see the [LICENSE](LICENSE) file for details. Use and modify freely.
 
 ## Acknowledgments
 
