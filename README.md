@@ -112,7 +112,8 @@ Weather data is fetched from the [Aviation Weather Center](https://aviationweath
 ```
 KodeKloud-METAR-Reader/
 ├── app.py                 # Main Flask application with METAR decoder
-├── requirements.txt       # Python dependencies
+├── test_app.py            # Comprehensive test suite (27 tests, 99% coverage)
+├── requirements.txt       # Python dependencies (includes pytest)
 ├── templates/
 │   ├── index.html        # Home page template
 │   └── result.html       # Results display template
@@ -134,6 +135,35 @@ The `METARDecoder` class is modular and easy to extend:
 
 ### Running Tests
 
+The project includes a comprehensive test suite with 99% code coverage:
+
+```bash
+# Install testing dependencies
+pip install -r requirements.txt
+
+# Run all tests
+python3 -m pytest test_app.py -v
+
+# Run tests with coverage report
+python3 -m pytest test_app.py --cov=app --cov-report=term-missing
+```
+
+#### Test Coverage
+
+The test suite includes:
+- **Unit Tests**: Individual METAR decoder methods (wind, visibility, clouds, weather, temperature)
+- **Integration Tests**: Complete METAR string parsing with real aviation weather data
+- **API Tests**: Network request handling with mocked responses
+- **Flask Route Tests**: Web application endpoints and form validation
+- **Edge Case Tests**: Error handling and boundary conditions
+
+Sample test METAR data used:
+- `KHIO 061853Z 27008KT 10SM CLR 22/16 A3012` (clear weather)
+- `KORD 061851Z 09014KT 3SM -RA SCT008 BKN015 OVC025 18/17 A2992` (rain conditions)
+- `PANC 061853Z 36010KT 10SM CLR M15/M20 A2985` (sub-zero temperatures)
+
+### Manual Testing
+
 ```bash
 # Test with various airport codes
 python app.py
@@ -147,6 +177,8 @@ The codebase follows Python best practices:
 - Type hints where appropriate
 - Error handling for network requests
 - Modular design for easy maintenance
+- 99% test coverage with 27 comprehensive tests
+- Mock testing for external API dependencies
 
 ## Deployment
 
